@@ -1,0 +1,53 @@
+﻿#include <iostream>
+
+
+using namespace std;
+
+
+int main() {
+     
+   int age, year;
+   string lastname, firstname, middlename, program;
+   long ussn;
+   
+   cout << "AMA Student Portal" << endl;
+   cout << "________________________________________" << endl;
+   cout << "Please fill up the following: " << endl;
+   
+   cout << "USSN: ";
+   cin >> ussn;
+   
+   cout << "Last Name: ";
+   cin >> lastname;
+   
+   cout << "First Name: ";
+   cin >> firstname;
+   
+   cout << "Middle Name: ";
+   cin >> middlename;
+   
+   cout << "Age: ";
+   cin >> age;
+   
+   cout << "Year: ";
+   cin >> year;
+   
+   cout << "Program: ";
+   cin >> program;
+   
+   
+   cout <<"________________________________________" << endl;
+   cout << "Student Information" << endl;
+   
+   cout << "USSN: " << ussn << endl;
+   cout << "Last Name: " << lastname << endl;
+   cout << "First Name: " << firstname << endl;
+   cout << "Middle Name: " << middlename << endl;
+   cout << "Age: " << age << endl;
+   cout << "Year and Program: " << year << "st Year BSIT \n\n";
+   
+   
+   cout << "Welcome, " << firstname << " " << middlename << " " << lastname << " to " << " AMACC LIPA! " << endl;
+   
+    return 0;
+}
