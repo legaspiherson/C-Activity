@@ -1,0 +1,85 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int orderNum, orderQty;
+    double price, grandTotal = 0.00;
+    char again;
+
+    // Add counters for each item
+    int chickenQty = 0, porkQty = 0, beefQty = 0;
+
+    do {
+        cout << "\n\n === Samgyupsal Menu === \n\n";
+        cout << "1. Chicken Samgyupsal - Php 199.00\n";
+        cout << "2. Pork Samgyupsal    - Php 299.00\n";
+        cout << "3. Beef Samgyupsal    - Php 399.00\n";
+
+        // Order number validation
+        do {
+            cout << "\nEnter your order here (Choose 1, 2, or 3): ";
+            cin >> orderNum;
+
+            if (orderNum != 1 && orderNum != 2 && orderNum != 3) {
+                cout << "Invalid order number. Please enter 1, 2, or 3. \n";
+            }
+        } while (orderNum != 1 && orderNum != 2 && orderNum != 3);
+
+        // Quantity validation
+        do {
+            cout << "How many would you like to order?: ";
+            cin >> orderQty;
+
+            if (orderQty <= 0) {
+                cout << "Please enter a number greater than 0.\n";
+            }
+        } while (orderQty <= 0);
+
+        price = 0.00;
+
+        // Calculate total price and track item quantity
+        if (orderNum == 1) {
+            price = 199.00 * orderQty;
+            chickenQty += orderQty;
+            cout << "\nOrder: " << orderQty << " x Chicken Samgyupsal\t= Php " << fixed << setprecision(2) << price << endl;
+        } else if (orderNum == 2) {
+            price = 299.00 * orderQty;
+            porkQty += orderQty;
+            cout << "\nOrder: " << orderQty << " x Pork Samgyupsal\t= Php " << fixed << setprecision(2) << price << endl;
+        } else if (orderNum == 3) {
+            price = 399.00 * orderQty;
+            beefQty += orderQty;
+            cout << "\nOrder: " << orderQty << " x Beef Samgyupsal\t= Php " << fixed << setprecision(2) << price << endl;
+        }
+
+        grandTotal += price;
+
+        // Ask to order again
+        cout << "\nWould you like to order again? (Choose 'Y' if yes and 'N' if no.): ";
+        cin >> again;
+
+    } while (again == 'Y' || again == 'y');
+
+    // Final Receipt
+    cout << "\n\n--- Official Receipt ---\n\n";
+    cout << fixed << setprecision(2);
+
+    if (chickenQty > 0) {
+        cout << chickenQty << " x Chicken Samgyupsal\t= Php " << chickenQty * 199.00 << endl;
+    }
+    if (porkQty > 0) {
+        cout << porkQty << " x Pork Samgyupsal\t= Php " << porkQty * 299.00 << endl;
+    }
+    if (beefQty > 0) {
+        cout << beefQty << " x Beef Samgyupsal\t= Php " << beefQty * 399.00 << endl;
+    }
+
+    cout << "----------------------------------------" << endl;
+    cout << "Grand Total:\t\tPhp " << grandTotal << endl;
+    cout << "----------------------------------------\n";
+    cout << "\nThank you for ordering! Enjoy your meal!" << endl;
+
+    return 0;
+}
