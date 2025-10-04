@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   
+   
+   int packageNum;
+   char again;
+   double price, grandTotal = 0.0;
+   int pork = 0, beef = 0, chicken = 0, seafoods = 0, all = 0;
+   
+   do {
+   cout << "===========================================================" << endl;
+   cout << "=           Welcome to Pg. 13 Samgyupsal                  =" << endl;
+   cout << "===========================================================" << endl;
+   cout << "Sampgyupsal Package for Today: " << endl;
+   
+   cout << "1. Pork Package.................................Php 1000.00" << endl;
+   cout << "2. Beef Package.................................Php 1500.00" << endl;
+   cout << "3. Chicken Package..............................Php 1200.00" << endl;
+   cout << "4. Seafoods Package.............................Php 1300.00" << endl;
+   cout << "5. All in One Package...........................Php 6000.00" << endl;
+   
+   
+        //taking order here   
+        do {   
+            cout << "\nChoose your Samgyupsal Package from the Menu: ";
+            cin >> packageNum;
+            
+            if (packageNum != 1 && packageNum != 2 && packageNum != 3 && packageNum != 4 && packageNum != 5) {
+                cout << "Invalid Package Number! Please choose from 1-5. " << endl;
+            } 
+            }while (packageNum != 1 && packageNum != 2 && packageNum != 3 && packageNum != 4 && packageNum != 5);
+        
+        //package and price
+        
+        price = 0.0;
+  
+        if (packageNum == 1) {
+            price = 1000;
+            cout << "\n1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
+            cout << "2. Marinated Pork (500g)\n";
+            cout << "3. Vegetable Set\n";
+            cout << "4. Kinds of side dishes and Bean Pasta Stew\n";
+            cout << "5. Pork Belly Lemon\n";
+            cout << "6. Marinated Bacon\n";
+        } else if (packageNum == 2) {
+            price = 1500;
+            cout << "\n1. US Marbled Beef (300g)\n";
+            cout << "2. Tender Beef (300g)\n";
+            cout << "3. Beef Belly (300g)\n";
+            cout << "4. Fresh Vegetable Set\n";
+            cout << "5. Kinds of side dishes\n";
+            cout << "6. Kani Bacon\n";
+        } else if (packageNum == 3) {
+            price = 1200;
+            cout << "\n1. Marinated Chicken Thin and Thick Cut\n";
+            cout << "2. Chicken Barbeque\n";
+            cout << "3. Spicy Fried Chciken\n";
+            cout << "4. Fresh Vegetable Set\n";
+            cout << "5. Kinds of side disehes\n";
+            cout << "6. Grill Chicken\n";
+        } else if (packageNum == 4) {
+            price = 1300;
+            cout << "\n1. Grilled Shrimp\n";
+            cout << "2. Squid Rings\n";
+            cout << "3. Steamed Clams\n";
+            cout << "4. Grilled Octopus\n";
+            cout << "5. Spicy Tuna Sashimi\n";
+            cout << "6. Grilled Salmon\n";
+        } else if (packageNum == 5) {
+            price = 6000;
+            cout << "1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
+            cout << "2. Marinated Pork (500g)\n";
+            cout << "3. Vegetable Set\n";
+            cout << "4. Kinds of side dishes and Bean Pasta Stew\n";
+            cout << "5. Pork Belly Lemon\n";
+        } else {
+            cout << "\nInvalid Package Order Number! Please choose from 1-5." << endl;
+        }
+    cout << "\nWould you like to order again? (Choose Y/N): ";
+    cin >> again;
+    
+   } while (again == 'Y' || again == 'y');
+   
+   cout << "\n------------------- Official Receipt -------------------\n";
+   cout << "Order Summary:\n";
+   
+   if (pork > 0) {
+       cout << pork * price << endl; 
+   }
+   
+   cout << "\nThank you for odering! Enjoy your meal!" << endl;
+   
+    return 0;
+}
