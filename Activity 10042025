@@ -14,7 +14,7 @@ int main() {
    cout << "===========================================================" << endl;
    cout << "=           Welcome to Pg. 13 Samgyupsal                  =" << endl;
    cout << "===========================================================" << endl;
-   cout << "Sampgyupsal Package for Today: " << endl;
+   cout << "Samgyupsal Package for Today: " << endl;
    
    cout << "1. Pork Package.................................Php 1000.00" << endl;
    cout << "2. Beef Package.................................Php 1500.00" << endl;
@@ -23,7 +23,7 @@ int main() {
    cout << "5. All in One Package...........................Php 6000.00" << endl;
    
    
-        //taking order here   
+        //Validating samgyup package number here  
         do {   
             cout << "\nChoose your Samgyupsal Package from the Menu: ";
             cin >> packageNum;
@@ -36,9 +36,11 @@ int main() {
         //package and price
         
         price = 0.0;
-  
+        
+        //Using if...else for menu selection
         if (packageNum == 1) {
             price = 1000;
+            pork++;
             cout << "\n1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
             cout << "2. Marinated Pork (500g)\n";
             cout << "3. Vegetable Set\n";
@@ -47,6 +49,7 @@ int main() {
             cout << "6. Marinated Bacon\n";
         } else if (packageNum == 2) {
             price = 1500;
+            beef++;
             cout << "\n1. US Marbled Beef (300g)\n";
             cout << "2. Tender Beef (300g)\n";
             cout << "3. Beef Belly (300g)\n";
@@ -55,14 +58,16 @@ int main() {
             cout << "6. Kani Bacon\n";
         } else if (packageNum == 3) {
             price = 1200;
+            chicken++;
             cout << "\n1. Marinated Chicken Thin and Thick Cut\n";
             cout << "2. Chicken Barbeque\n";
             cout << "3. Spicy Fried Chciken\n";
             cout << "4. Fresh Vegetable Set\n";
-            cout << "5. Kinds of side disehes\n";
+            cout << "5. Kinds of side dishes\n";
             cout << "6. Grill Chicken\n";
         } else if (packageNum == 4) {
             price = 1300;
+            seafoods++;
             cout << "\n1. Grilled Shrimp\n";
             cout << "2. Squid Rings\n";
             cout << "3. Steamed Clams\n";
@@ -71,6 +76,7 @@ int main() {
             cout << "6. Grilled Salmon\n";
         } else if (packageNum == 5) {
             price = 6000;
+            all++;
             cout << "1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
             cout << "2. Marinated Pork (500g)\n";
             cout << "3. Vegetable Set\n";
@@ -79,19 +85,32 @@ int main() {
         } else {
             cout << "\nInvalid Package Order Number! Please choose from 1-5." << endl;
         }
+        
+        grandTotal += price; // shorthand for grandTotal = grandTotal + price
+        
     cout << "\nWould you like to order again? (Choose Y/N): ";
     cin >> again;
     
    } while (again == 'Y' || again == 'y');
    
-   cout << "\n------------------- Official Receipt -------------------\n";
+   cout << "\n------------------- Official Receipt ----------------------\n";
    cout << "Order Summary:\n";
    
-   if (pork > 0) {
-       cout << pork * price << endl; 
-   }
-   
-   cout << "\nThank you for odering! Enjoy your meal!" << endl;
+   if (pork > 0)
+       cout << pork << " x Pork Package = Php " << pork * 1000 << endl;
+   if (beef > 0)
+       cout << beef << " x Beef Package = Php " << beef * 1500 << endl;
+   if (chicken > 0)
+       cout << chicken << " x Chicken Package = Php " << chicken * 1200 << endl;
+   if (seafoods > 0)
+       cout << seafoods << " x Seafoods Package = Php " << seafoods * 1300 << endl;
+   if (all > 0)
+       cout << all << " x All in One Package = Php " << all * 6000 << endl; 
+       
+   cout << "\n-----------------------------------------------------------\n";
+   cout << "Grand Total: Php " << grandTotal << endl;
+   cout << "-----------------------------------------------------------\n";
+   cout << "\nThank you for ordering! Enjoy your meal!" << endl;
    
     return 0;
 }
