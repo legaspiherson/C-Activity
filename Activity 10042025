@@ -8,6 +8,7 @@ int main() {
    int packageNum;
    char again;
    double price, grandTotal = 0.0;
+   double payment, change;
    int pork = 0, beef = 0, chicken = 0, seafoods = 0, all = 0;
    
    do {
@@ -93,6 +94,26 @@ int main() {
     
    } while (again == 'Y' || again == 'y');
    
+   
+   double taxRate = 0.12;
+   double taxAmount, totalAfterTax;
+   
+   //Calculating price with tax
+   taxAmount = grandTotal * taxRate;
+   totalAfterTax = grandTotal + taxAmount;
+   
+   //Payment and change
+        do {
+            cout << "\nEnter payment here: Php ";
+            cin >> payment;
+            
+            if (payment < totalAfterTax) {
+                cout << "Insufficient Payment! Please pay exact amount!";
+            }
+        } while (payment < totalAfterTax);
+        
+        change = payment - totalAfterTax;
+   
    cout << "\n------------------- Official Receipt ----------------------\n";
    cout << "Order Summary:\n";
    
@@ -108,7 +129,11 @@ int main() {
        cout << all << " x All in One Package = Php " << all * 6000 << endl; 
        
    cout << "\n-----------------------------------------------------------\n";
-   cout << "Grand Total: Php " << grandTotal << endl;
+   cout << "SubTotal: Php " << grandTotal << endl;
+   cout << "Tax (12%): Php " << taxAmount << endl;
+   cout << "Total After Tax: Php " << totalAfterTax << endl;
+   cout << "Payment: Php " << payment << endl;
+   cout << "Change: Php " << change << endl;
    cout << "-----------------------------------------------------------\n";
    cout << "\nThank you for ordering! Enjoy your meal!" << endl;
    
