@@ -3,143 +3,155 @@
 using namespace std;
 
 int main() {
-   
-   
-   int packageNum;
-   char again;
-   double price, grandTotal = 0.0;
-   double payment, change;
-   const double taxRate = 0.12;
-   double taxAmount, totalAfterTax;
-   int pork = 0, beef = 0, chicken = 0, seafoods = 0, all = 0;
-   
-   do {
-   cout << "===========================================================" << endl;
-   cout << "=           Welcome to Pg. 13 Samgyupsal                  =" << endl;
-   cout << "===========================================================" << endl;
-   cout << "Samgyupsal Package for Today: " << endl;
-   
-   cout << "1. Pork Package.................................Php 1000.00" << endl;
-   cout << "2. Beef Package.................................Php 1500.00" << endl;
-   cout << "3. Chicken Package..............................Php 1200.00" << endl;
-   cout << "4. Seafoods Package.............................Php 1300.00" << endl;
-   cout << "5. All in One Package...........................Php 6000.00" << endl;
-   
-   
-        //Validating samgyup package number here  
-        do {   
-            cout << "\nChoose your Samgyupsal Package from the Menu: ";
-            cin >> packageNum;
-            
-            if (packageNum != 1 && packageNum != 2 && packageNum != 3 && packageNum != 4 && packageNum != 5) {
-                cout << "Invalid Package Number! Please choose from 1-5. " << endl;
-            } 
-            }while (packageNum != 1 && packageNum != 2 && packageNum != 3 && packageNum != 4 && packageNum != 5);
+    
+    int packageNum;
+    char again;
+    double price, grandTotal = 0.0;
+    int pork = 0.0, beef = 0.0, chicken = 0.0, seafood = 0.0, allIn = 0.0;
+    
+    do {
+    cout << "===================================================================\n";
+    cout << "=                       Herson's Samgyupsal                      =\n";
+    cout << "===================================================================\n";
+    cout << "Samgyupsal Menu for Today:\n";
+    cout << "1. Pork Package........................................Php 1000.00\n";
+    cout << "2. Beef Package........................................Php 1500.00\n";
+    cout << "3. Chicken Package.....................................Php 1200.00\n";
+    cout << "4. Seafood Package.....................................Php 1300.00\n";
+    cout << "5. All-in One Package..................................Php 6000.00\n";
+    
+    do {
+        cout << "\nChoose your Samgyupsal Package from the Menu: ";
+        cin >> packageNum;
         
-        //package and price
-        
-        price = 0.0;
-        
-        //Using if...else for menu selection
-        if (packageNum == 1) {
-            price = 1000;
-            pork++;
-            cout << "\n1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
-            cout << "2. Marinated Pork (500g)\n";
-            cout << "3. Vegetable Set\n";
-            cout << "4. Kinds of side dishes and Bean Pasta Stew\n";
-            cout << "5. Pork Belly Lemon\n";
-            cout << "6. Marinated Bacon\n";
+        if (packageNum <= 0) {
+            cout << "Invalid Package Number! Please choose from 1-5.\n";
+        }    
+    } while (packageNum <= 0);
+    
+    price = 0.0;
+    
+    if (packageNum == 1) {
+        price = 1000;
+        pork++;
+        cout << "1. Fresh Meat Samgyupsal Thin or Thick (500g)\n";
+        cout << "2. Marinated Pork (500g)\n";
+        cout << "3. Vegetable Set\n";
+        cout << "4, Kinds of side dishes and Bean Pasta Stew\n";
+        cout << "5. Pork Belly Lemon\n";
+        cout << "6. Marinated Bacon\n";
         } else if (packageNum == 2) {
-            price = 1500;
-            beef++;
-            cout << "\n1. US Marbled Beef (300g)\n";
-            cout << "2. Tender Beef (300g)\n";
-            cout << "3. Beef Belly (300g)\n";
-            cout << "4. Fresh Vegetable Set\n";
-            cout << "5. Kinds of side dishes\n";
-            cout << "6. Kani Bacon\n";
+        price = 1500;
+        beef++;
+        cout << "1. Us Marbled Beef (300g)\n";
+        cout << "2. Tender Beef (300g)\n";
+        cout << "3. Beef Belly (300g)\n";
+        cout << "4. Fresh Vegetable Set\n";
+        cout << "5. Kinds of Side Dishes\n";
+        cout << "6. Kani Bacon\n";
         } else if (packageNum == 3) {
-            price = 1200;
-            chicken++;
-            cout << "\n1. Marinated Chicken Thin and Thick Cut\n";
-            cout << "2. Chicken Barbeque\n";
-            cout << "3. Spicy Fried Chciken\n";
-            cout << "4. Fresh Vegetable Set\n";
-            cout << "5. Kinds of side dishes\n";
-            cout << "6. Grill Chicken\n";
+        price = 1200;
+        chicken++;
+        cout << "1. Marinated Chicken Thin or Thick Cut\n";
+        cout << "2. Chicken Barbeque\n";
+        cout << "3. Spicy Fried Chicken\n";
+        cout << "4. Fresh Vegetable Set\n";
+        cout << "5. Kinds of Side Dishes\n";
+        cout << "6. Grill Chicken\n";
         } else if (packageNum == 4) {
-            price = 1300;
-            seafoods++;
-            cout << "\n1. Grilled Shrimp\n";
-            cout << "2. Squid Rings\n";
-            cout << "3. Steamed Clams\n";
-            cout << "4. Grilled Octopus\n";
-            cout << "5. Spicy Tuna Sashimi\n";
-            cout << "6. Grilled Salmon\n";
+        price = 1300;
+        seafood++;
+        cout << "1. Grilled Shrimp\n";
+        cout << "2. Squid Rings\n";
+        cout << "3. Steamed Clams\n";
+        cout << "4. Grilled Octopus\n";
+        cout << "5. Spicy Tuna Sashimi\n";
+        cout << "6. Grilled Salmon\n";
         } else if (packageNum == 5) {
-            price = 6000;
-            all++;
-            cout << "1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
-            cout << "2. Marinated Pork (500g)\n";
-            cout << "3. Vegetable Set\n";
-            cout << "4. Kinds of side dishes and Bean Pasta Stew\n";
-            cout << "5. Pork Belly Lemon\n";
+        price = 6000;
+        allIn++;
+        cout << "1. Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";
+        cout << "2. Marinated Pork (500g)\n";
+        cout << "3. Vegetable Set\n";
+        cout << "4. Kinds of Side Dishes and Bean Pasta Stew\n";
+        cout << "5. Pork Belly Lemon\n";
+        cout << "6. Marinated Bacon\n";
+        cout << "7. Us Marbled Beef (300g)\n";
+        cout << "8. Tender Beef (300g)\n";
+        cout << "9. Beef Belly (300g)\n";
+        cout << "10. Fresh Vegetable Set\n";
+        cout << "11. Kinds of Side Dishes\n";
+        cout << "12. Kani Bacon\n";
+        cout << "13. Marinated Chicken Thin or Thick Cut\n";
+        cout << "14. Chicken Barbecue\n";
+        cout << "15. Spicy Fried Chicken\n";
+        cout << "16. Fresh Vegetable Set\n";
+        cout << "17. Kinds of Side Dishes\n";
+        cout << "18. Grill Chicken\n";
+        cout << "19. Grilled Shrimp\n";
+        cout << "20. Squid Rings\n";
+        cout << "21. Steamed Clams\n";
+        cout << "22. Grilled Octopus\n";
+        cout << "23. Spicy Tuna Chicken\n";
+        cout << "24. Grilled Salmon\n";
         } else {
-            cout << "\nInvalid Package Order Number! Please choose from 1-5." << endl;
+        cout << "Invalid Package Number! Please choose from 1-5";
         }
         
-        grandTotal += price; // shorthand for grandTotal = grandTotal + price
+        grandTotal = price + grandTotal;
         
-    cout << "\nWould you like to order again? (Choose Y/N): ";
-    cin >> again;
+        cout << "Do you wan to order another package of Samgyupsal? (Y/N): ";
+        cin >> again;
+        
+    } while (again == 'Y' || again == 'y');
     
-   } while (again == 'Y' || again == 'y');
-   
-   
-   
-   //Calculating price with tax
-   taxAmount = grandTotal * taxRate;
-   totalAfterTax = grandTotal + taxAmount;
-   
-   
-   
-   
-   cout << "\n------------------- Official Receipt ----------------------\n";
-   cout << "You've ordered the following package/s:\n";
-   
-   if (pork > 0)
-       cout << pork << " x Pork Package = Php " << pork * 1000 << endl;
-   if (beef > 0)
-       cout << beef << " x Beef Package = Php " << beef * 1500 << endl;
-   if (chicken > 0)
-       cout << chicken << " x Chicken Package = Php " << chicken * 1200 << endl;
-   if (seafoods > 0)
-       cout << seafoods << " x Seafoods Package = Php " << seafoods * 1300 << endl;
-   if (all > 0)
-       cout << all << " x All in One Package = Php " << all * 6000 << endl; 
-       
-   cout << "\n-----------------------------------------------------------\n";
-   cout << "SubTotal: Php " << grandTotal << endl;
-   cout << "Tax (12%): Php " << taxAmount << endl;
-   cout << "Total After Tax: Php " << totalAfterTax << endl;
-   
-   //Payment and change
-        do {
-            cout << "\nEnter payment here: Php ";
-            cin >> payment;
-            
-            if (payment < totalAfterTax) {
-                cout << "Insufficient Payment! Please pay exact amount!";
-            }
-        } while (payment < totalAfterTax);
+    //calculating price with tax
+    
+    const double taxRate = 0.12;
+    double taxAmount, totalAfterTax;
+    
+    taxAmount = grandTotal * taxRate;
+    totalAfterTax = grandTotal - taxAmount;
+    
+    cout << "===================================================================\n";
+    cout << "You've ordered the following package/s:\n";
+    cout << "===================================================================\n";
+    
+    if (pork > 0) 
+        cout << pork << " x Pork Package = Php " << pork * 1000 << endl;
+    if (beef > 0)
+        cout << beef << " x Beef Package = Php " << beef * 1500 << endl;
+    if (chicken > 0)
+        cout << chicken << " x Chicken Package = Php " << chicken * 1200 << endl;
+    if (seafood > 0)
+        cout << seafood << " x Seafood Package = Php " << seafood * 1300 << endl;
+    if (allIn > 0)
+        cout << allIn << " x All-in One Package = Php " << allIn * 1000 << endl;
+    
+    cout << "\n-------------------------Customer's Receipt------------------------\n";
+    cout << "SubTotal: Php " << grandTotal << endl;
+    cout << "Tax (12%): " << taxAmount << endl;
+    cout << "Grand Total: Php " << totalAfterTax << endl;
+    
+
+    //payment and change
+    
+    double payment, change;
+    
+    do {
+        cout << "\nEnter payment here: Php ";
+        cin >> payment;
         
-        change = payment - totalAfterTax;
-   
-   cout << "Payment: Php " << payment << endl;
-   cout << "Change: Php " << change << endl;
-   cout << "-----------------------------------------------------------\n";
-   cout << "\nThank you for ordering! Enjoy your meal!" << endl;
-   
+        if (payment < totalAfterTax) {
+            cout << "Insufficient Payment. Please try again.\n";
+        }
+    } while (payment <= totalAfterTax);
+    
+    change = payment - totalAfterTax;
+    
+    cout << "Change: Php " << change << endl;
+    cout << "\n------------------------------------------------------------------\n";
+    cout << "Thank you for ordering with us. Goodbye!" << endl;
+
     return 0;
 }
